@@ -13,7 +13,7 @@ Group Members
 """
 
 from random import randint, choice
-from typing import Tuple
+from typing import Tuple, List
 from colorama import init
 
 # Constants
@@ -98,13 +98,13 @@ def compare_guess(guess: str, pattern: str) -> Tuple[bool, bool, str]:
     return False, True, f"{correct_place}R - {correct_colour}W"
 
 
-def draw_board(guesses: list[tuple], max_guesses: int, length: int) -> None:
+def draw_board(guesses: List[tuple], max_guesses: int, length: int) -> None:
     """
     Draws the board
 
     :param guesses: list containing a tuple of previous guesses as well as statuses
     :param max_guesses: the number of guesses the player is allowed
-    :param length: length of the pattern
+    :param length: length of the pattern`
     :return: None
     """
     VERT = f"{OKBLUE}║{ENDC}"
