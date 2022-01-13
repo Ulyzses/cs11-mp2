@@ -143,7 +143,7 @@ def start_game(**kwargs) -> None:
     is_playing = True
 
     # Start the game cycles
-
+    print()
     print(f"{BOLD}{UNDERLINE}GAME START{ENDC}")
     print(f"{BOLD}Are you truly the master of your mind?{ENDC}")
     print(f"{BOLD}Difficulty: {DIFFICULTY[pattern_length]}{ENDC}")
@@ -168,11 +168,11 @@ def start_game(**kwargs) -> None:
 
         # Win or lose logic
         if has_won:
-            print("YOU WIN!!")
+            print(f"{BOLD}{OKGREEN}YOU WIN!!{ENDC}")
             is_playing = False
         elif guess_count >= max_guesses:
-            print("YOU LOST!!")
-            print(f"The code is {pattern}")
+            print(f"{BOLD}{FAIL}YOU LOST!!{ENDC}")
+            print(f"The code is {OKCYAN}{pattern}{ENDC}")
             is_playing = False
 
         # Display hints when user asks for a lifeline. Lifelines can only be used once.
@@ -236,14 +236,18 @@ different terminal or this will not be a good experience.
      will affect the pattern length.
      (-) The ability to set the difficulty is a paid DLC /s
  (5) The game ends when the pattern is guessed or the max
-     amount of tries is reached.
-{ENDC}""")
+     amount of tries is reached.{ENDC}""")
 
     while True:
         start_game()
-        restart = input("Restart the game? [Yes or No]").lower().replace(" ", "")
-        if restart == 'no':
-            quit()
+        while True:
+            restart = input("Restart the game? [Yes or No] ").lower().replace(" ", "")
+            if restart == 'no':
+                quit()
+            elif restart == 'yes':
+                break
+            else:
+                print(f"{WARNING}Invalid answer: {restart}{ENDC}")
 
 
 """
