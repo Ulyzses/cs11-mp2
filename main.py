@@ -170,7 +170,7 @@ def start_game(**kwargs) -> None:
         if has_won:
             print(f"{BOLD}{OKGREEN}YOU WIN!!{ENDC}")
             is_playing = False
-        elif guess_count >= max_guesses:
+        elif guess_count > max_guesses:
             print(f"{BOLD}{FAIL}YOU LOST!!{ENDC}")
             print(f"The code is {OKCYAN}{pattern}{ENDC}")
             is_playing = False
